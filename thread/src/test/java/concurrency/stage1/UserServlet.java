@@ -1,11 +1,12 @@
 package concurrency.stage1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserServlet {
 
-    private final List<User> users = new ArrayList<>();
+    private final List<User> users = Collections.synchronizedList(new ArrayList<>());
 
     public void service(final User user) {
         join(user);
